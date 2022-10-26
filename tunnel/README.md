@@ -11,6 +11,3 @@
 `tunnel --server --port=6001 -addr=127.0.0.1:80`
 `port`: 监听服务器的端口,客户端连接到此端口
 `addr`: 将客户端的全部流量转发到此地址,比如`127.0.0.1:80`,就是让客户端访问本地的http服务
-
-  git config --global user.email "whyming@live.cn"
-  git config --global user.name "whyming@live.cn"
