@@ -5,13 +5,11 @@ import (
 	"fmt"
 	"io"
 	"net"
-	"time"
 )
 
 func Decode(from, to net.Conn) {
 	var length [2]byte
 	for {
-		from.SetReadDeadline(time.Now().Add(10 * time.Second))
 		n, err := from.Read(length[:])
 		if err == io.EOF {
 			break
@@ -58,7 +56,6 @@ func readLength(reader io.Reader, length int) ([]byte, error) {
 func Encode(from, to net.Conn) {
 	buf := make([]byte, 1024)
 	for {
-		from.SetReadDeadline(time.Now().Add(10 * time.Second))
 		n, err := from.Read(buf[:])
 		if err == io.EOF {
 			break
